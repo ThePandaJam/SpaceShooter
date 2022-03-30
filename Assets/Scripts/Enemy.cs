@@ -38,6 +38,12 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Player damaged");
+            Player player = other.transform.GetComponent<Player>();
+            //null check
+            if (player != null)
+            {
+                player.Damage();
+            }
             Destroy(this.gameObject);
         }
 
