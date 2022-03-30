@@ -6,6 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject _enemyPrefab;
+    [SerializeField]
+    private GameObject _enemyContainer;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,8 @@ public class SpawnManager : MonoBehaviour
         while (true)
         {
             //intantiate enemy prefab
-            Instantiate(_enemyPrefab, spawnPoint, Quaternion.identity);
+            GameObject newEnemy = Instantiate(_enemyPrefab, spawnPoint, Quaternion.identity);
+            newEnemy.transform.parent = _enemyContainer.transform;
             //yield wait for 5 seconds
             yield return new WaitForSeconds(5.0f);
         }
