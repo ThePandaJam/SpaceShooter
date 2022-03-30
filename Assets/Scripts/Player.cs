@@ -67,9 +67,7 @@ public class Player : MonoBehaviour
 
         if (_lives <= 0)
         {
-            //communicate with spawn manager
             _spawnManager.OnPlayerDeath();
-            //let it know to stop spawning objects
             Destroy(this.gameObject);
         }
     }
