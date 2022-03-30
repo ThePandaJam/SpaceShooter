@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _laserPrefab: {fileID: 2631277307318870583, guid: ca3e0e4f53168e543a8c177177b7c3e6,
+  _laserPrefab: {fileID: 2475841489273898613, guid: ca3e0e4f53168e543a8c177177b7c3e6,
     type: 3}
   _fireRate: 0.15
   _lives: 3
@@ -442,7 +442,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0035877228, y: -0.035601497}
