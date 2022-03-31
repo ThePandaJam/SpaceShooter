@@ -19,12 +19,6 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnPowerupRoutine());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     IEnumerator SpawnEnemyRoutine()
     {
         float randX = Random.Range(-9.4f, 9.4f);
@@ -39,7 +33,6 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnPowerupRoutine()
     {
-        //every 3-7 seconds, spawn a powerup
         Vector3 spawnPoint = new Vector3(Random.Range(-9.4f, 9.4f), 8.0f, 0);
         while (_stopSpawning == false)
         {

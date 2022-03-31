@@ -70,11 +70,6 @@ public class Player : MonoBehaviour
         {
             Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
         }
-        //if space key pressed,
-        //if triple shot active == true
-        //  fire 3 lasers
-        //else
-        //  fire 1 laser
     }
 
     public void Damage()
@@ -90,16 +85,11 @@ public class Player : MonoBehaviour
 
     public void TripleShotActivate()
     {
-        //tripleShotActive becomes true
         _tripleShotActive = true;
-        //start the power down coroutine for triple shot
         StartCoroutine(TripleShotPowerDown());
 
     }
 
-    //IEnumerator TripleShotPowerDown
-    //wait 5 seconds
-    //set the triple shot to false
     IEnumerator TripleShotPowerDown()
     {
         while (_tripleShotActive == true)
