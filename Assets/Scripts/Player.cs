@@ -87,4 +87,25 @@ public class Player : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public void TripleShotActivate()
+    {
+        //tripleShotActive becomes true
+        _tripleShotActive = true;
+        //start the power down coroutine for triple shot
+        StartCoroutine(TripleShotPowerDown());
+
+    }
+
+    //IEnumerator TripleShotPowerDown
+    //wait 5 seconds
+    //set the triple shot to false
+    IEnumerator TripleShotPowerDown()
+    {
+        while (_tripleShotActive == true)
+        {
+            yield return new WaitForSeconds(5.0f);
+            _tripleShotActive = false;
+        }
+    }
 }
