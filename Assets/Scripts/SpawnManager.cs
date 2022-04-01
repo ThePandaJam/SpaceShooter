@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnPowerupRoutine()
     {
-        Vector3 spawnPoint = new Vector3(Random.Range(-9.4f, 9.4f), 8.0f, 0);
+        Vector3 spawnPoint = new Vector3(Random.Range(-8, 8), 8.0f, 0);
         while (_stopSpawning == false)
         {
             GameObject newPowerup = Instantiate(_tripleShotPowerupPrefab, spawnPoint, Quaternion.identity);
