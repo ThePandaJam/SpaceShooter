@@ -36,7 +36,7 @@ public class Powerup : MonoBehaviour
                         player.TripleShotActivate();
                         break;
                     case 1:
-                        Debug.Log("collected speed boost");
+                        player.SpeedBoostActivate();
                         break;
                     case 2:
                         Debug.Log("collected shields");
