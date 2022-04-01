@@ -24,11 +24,14 @@ public class Player : MonoBehaviour
     private bool _speedBoostActive = false;
     [SerializeField]
     private bool _shieldsActive = false;
-
+    //variable reference to shield visualiser
+    [SerializeField]
+    private GameObject shieldVisualiser;
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
+        shieldVisualiser.SetActive(false);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>(); //find the gameobject, then get component
         if(_spawnManager == null)
         {
@@ -88,6 +91,8 @@ public class Player : MonoBehaviour
         if (_shieldsActive == true)
         {
             _shieldsActive = false;
+            //disable shields visualiser
+            shieldVisualiser.SetActive(false);
             return;
         }
         _lives--;
@@ -132,5 +137,7 @@ public class Player : MonoBehaviour
     public void ShieldsActivate()
     {
         _shieldsActive = true;
+        //enable shields visualiser
+        shieldVisualiser.SetActive(true);
     }
 }
