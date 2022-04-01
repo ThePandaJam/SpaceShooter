@@ -18,15 +18,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 3;
     private SpawnManager _spawnManager;
-    [SerializeField]
+
     private bool _tripleShotActive = false;
-    [SerializeField]
     private bool _speedBoostActive = false;
-    [SerializeField]
     private bool _shieldsActive = false;
-    //variable reference to shield visualiser
     [SerializeField]
     private GameObject shieldVisualiser;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -84,14 +82,9 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
-        //if shields are active
-        //do nothing...
-        //deactivate shields
-        //return
         if (_shieldsActive == true)
         {
             _shieldsActive = false;
-            //disable shields visualiser
             shieldVisualiser.SetActive(false);
             return;
         }
@@ -137,7 +130,6 @@ public class Player : MonoBehaviour
     public void ShieldsActivate()
     {
         _shieldsActive = true;
-        //enable shields visualiser
         shieldVisualiser.SetActive(true);
     }
 }
