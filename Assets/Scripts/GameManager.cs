@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //if r key was pressed
-        // reload the scene
         if (Input.GetKeyDown(KeyCode.R) && _isGameOver == true)
         {
             SceneManager.LoadScene(1); //Curent Game scene

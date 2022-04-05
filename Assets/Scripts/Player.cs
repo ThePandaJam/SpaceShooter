@@ -48,8 +48,6 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("The UI Manager is NULL.");
         }
-
-
     }
 
     // Update is called once per frame
@@ -152,13 +150,10 @@ public class Player : MonoBehaviour
         shieldVisualiser.SetActive(true);
     }
 
-    //method to add 10 to the score when enemy is hit
-    //communicate with the Ui to update the score
     public void ScoreIncrement(int points)
     {
         _score += points;
         _uiManager.UpdateScoreUI(_score);
 
     }
-
 }

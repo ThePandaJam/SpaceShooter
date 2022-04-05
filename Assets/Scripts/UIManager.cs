@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    //create handle to Text
     [SerializeField]
     private Text _scoreText;
     [SerializeField]
@@ -21,7 +20,6 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //asign text component to the handle
         _scoreText.text = "Score: " + 0;
         _gameOverText.gameObject.SetActive(false);
         _restartText.gameObject.SetActive(false);
@@ -45,10 +43,9 @@ public class UIManager : MonoBehaviour
 
     public void UpdateLives(int currentLives)
     {
-        //access display img sprite
-        //give it a new one based on te currentLives index
         _livesImg.sprite = _liveSprites[currentLives];
     }
+
     public void DisplayGameOver()
     {
         _gameManager.GameOver();
