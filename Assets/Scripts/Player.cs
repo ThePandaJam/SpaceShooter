@@ -26,6 +26,10 @@ public class Player : MonoBehaviour
     
     [SerializeField]
     private GameObject shieldVisualiser;
+    [SerializeField]
+    private GameObject _leftEngine, _rightEngine;
+    [SerializeField]
+    private GameObject _explosionPrefab;
 
     [SerializeField]
     private int _score = 0;
@@ -104,11 +108,22 @@ public class Player : MonoBehaviour
 
         _lives--;
 
+        if (_lives == 2)
+        {
+            _rightEngine.SetActive(true);
+        }
+
+        if (_lives == 1)
+        {
+            _leftEngine.SetActive(true);
+        }
+
         _uiManager.UpdateLives(_lives);
 
         if (_lives <= 0)
         {
             _spawnManager.OnPlayerDeath();
+            Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             _uiManager.DisplayGameOver();
         }
