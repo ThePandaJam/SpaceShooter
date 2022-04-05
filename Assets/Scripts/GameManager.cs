@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
         // reload the scene
         if (Input.GetKeyDown(KeyCode.R) && _isGameOver == true)
         {
-            SceneManager.LoadScene(0); //Curent Game scene
+            SceneManager.LoadScene(1); //Curent Game scene
         }
     }
     public void GameOver()
