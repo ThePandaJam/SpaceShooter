@@ -1245,6 +1245,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 7769306814611286572, guid: 91d48f00d5a0d754c83f6a4bb7a81a08,
+        type: 3}
+      propertyPath: _explosionPrefab
+      value: 
+      objectReference: {fileID: 3285852197115954046, guid: 983982d6769290046aa512de863b0db6,
+        type: 3}
     - target: {fileID: 7864214395568285522, guid: 91d48f00d5a0d754c83f6a4bb7a81a08,
         type: 3}
       propertyPath: m_RootOrder
