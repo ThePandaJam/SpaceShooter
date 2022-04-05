@@ -12,11 +12,14 @@ public class UIManager : MonoBehaviour
     private Image _livesImg;
     [SerializeField]
     private Sprite[] _liveSprites;
+    [SerializeField]
+    private Text _gameOverText;
     // Start is called before the first frame update
     void Start()
     {
         //asign text component to the handle
         _scoreText.text = "Score: " + 0;
+        _gameOverText.gameObject.SetActive(false);
 
     }
 
@@ -36,5 +39,9 @@ public class UIManager : MonoBehaviour
         //access display img sprite
         //give it a new one based on te currentLives index
         _livesImg.sprite = _liveSprites[currentLives];
+    }
+    public void DisplayGameOver()
+    {
+        _gameOverText.gameObject.SetActive(true);
     }
 }
