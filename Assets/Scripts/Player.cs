@@ -103,7 +103,10 @@ public class Player : MonoBehaviour
             shieldVisualiser.SetActive(false);
             return;
         }
+
         _lives--;
+
+        _uiManager.UpdateLives(_lives);
 
         if (_lives <= 0)
         {
