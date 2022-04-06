@@ -9,6 +9,9 @@ public class Powerup : MonoBehaviour
     [SerializeField]
     private int _powerupID; // 0 = triple shot, 1 = speed, 2 = shields
 
+    [SerializeField]
+    private AudioClip _powerupPickupSound;
+
     // Update is called once per frame
     void Update()
     {
@@ -23,6 +26,8 @@ public class Powerup : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            AudioSource.PlayClipAtPoint(_powerupPickupSound, transform.position);
+
             Player player = other.transform.GetComponent<Player>();
             if (player != null)
             {
@@ -41,6 +46,8 @@ public class Powerup : MonoBehaviour
                         Debug.Log("Default value");
                         break;
                 }
+                Debug.Log("Playing powerup audio...");
+
             }
             Destroy(this.gameObject);
         }
