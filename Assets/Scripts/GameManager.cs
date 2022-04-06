@@ -14,13 +14,12 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(1); //Curent Game scene
         }
-        //if escape key is pressed, quit the application
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
-
     }
+
     public void GameOver()
     {
         _isGameOver = true;

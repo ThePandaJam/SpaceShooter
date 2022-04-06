@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
     {
         CalculateMovement();
 
-        if(Time.time > _canFire)
+        if(Time.time > _canFire && _speed != 0)
         {
             _fireRate = Random.Range(3f, 7f);
             _canFire = Time.time + _fireRate;
