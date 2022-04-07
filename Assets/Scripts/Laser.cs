@@ -8,6 +8,25 @@ public class Laser : MonoBehaviour
     private float _speed = 8.0f;
     private bool _isEnemyLaser = false;
 
+    [SerializeField]
+    private AudioSource _audioSource;
+    [SerializeField]
+    private AudioClip _laserSound;
+
+    void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+
+        if (_audioSource == null)
+        {
+            Debug.LogError("Audio Source on the Player is NULL.");
+        }
+        else
+        {
+            _audioSource.clip = _laserSound;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
