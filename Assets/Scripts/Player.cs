@@ -137,15 +137,16 @@ public class Player : MonoBehaviour
             _leftEngine.SetActive(true);
         }
 
-        _uiManager.UpdateLives(_lives);
-
         if (_lives <= 0)
         {
+            _lives = 0;
             _spawnManager.OnPlayerDeath();
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             _uiManager.DisplayGameOver();
         }
+
+        _uiManager.UpdateLives(_lives);
     }
 
     public void TripleShotActivate()
