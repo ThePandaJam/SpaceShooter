@@ -46,8 +46,6 @@ public class Powerup : MonoBehaviour
                         Debug.Log("Default value");
                         break;
                 }
-                Debug.Log("Playing powerup audio...");
-
             }
             Destroy(this.gameObject);
         }

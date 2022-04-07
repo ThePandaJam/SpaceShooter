@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private AudioSource _audioSource;
     [SerializeField]
-    private AudioClip _laserSound;
+    private AudioClip _playerExplosionSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            _audioSource.clip = _laserSound;
+            _audioSource.clip = _playerExplosionSound;
         }
     }
 
@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
             Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
         }
         //play laser audio clip
-        _audioSource.Play();
+        //
     }
 
     public void Damage()
@@ -125,6 +125,7 @@ public class Player : MonoBehaviour
         }
 
         _lives--;
+        _audioSource.Play();
 
         if (_lives == 2)
         {
@@ -136,15 +137,16 @@ public class Player : MonoBehaviour
             _leftEngine.SetActive(true);
         }
 
-        _uiManager.UpdateLives(_lives);
-
         if (_lives <= 0)
         {
+            _lives = 0;
             _spawnManager.OnPlayerDeath();
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             _uiManager.DisplayGameOver();
         }
+
+        _uiManager.UpdateLives(_lives);
     }
 
     public void TripleShotActivate()

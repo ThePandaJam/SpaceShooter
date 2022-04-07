@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -165,7 +165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12865258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.38451055, y: 0.4746836, z: -3.6370726}
+  m_LocalPosition: {x: -0.38451055, y: 0.4746836, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1716408373}
@@ -1389,8 +1389,9 @@ MonoBehaviour:
   _explosionPrefab: {fileID: 3285852197115954046, guid: 983982d6769290046aa512de863b0db6,
     type: 3}
   _score: 0
-  _audioSource: {fileID: 0}
-  _laserSound: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
+  _audioSource: {fileID: 1492477499}
+  _playerExplosionSound: {fileID: 8300000, guid: a885c043fab7e46438bba03ba9dab6bc,
+    type: 3}
 --- !u!212 &1492477496
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1449,7 +1450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492477494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3.211, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 135867780}
@@ -1495,7 +1496,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a885c043fab7e46438bba03ba9dab6bc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
