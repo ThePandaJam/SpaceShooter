@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     private UIManager _uiManager;
 
     private bool _tripleShotActive = false;
-    private bool _speedBoostActive = false;
     private bool _shieldsActive = false;
     
     [SerializeField]
@@ -34,7 +33,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _score = 0;
 
-    //store audio clip in a variable
     [SerializeField]
     private AudioSource _audioSource;
     [SerializeField]
@@ -111,8 +109,6 @@ public class Player : MonoBehaviour
         {
             Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
         }
-        //play laser audio clip
-        //
     }
 
     public void Damage()
@@ -167,7 +163,6 @@ public class Player : MonoBehaviour
 
     public void SpeedBoostActivate()
     {
-        _speedBoostActive = true;
         _speed *= _speedMultiplier;
         StartCoroutine(SpeedBoostPowerDown());
     }
@@ -175,7 +170,6 @@ public class Player : MonoBehaviour
     IEnumerator SpeedBoostPowerDown()
     {
         yield return new WaitForSeconds(5.0f);
-        _speedBoostActive = false;
         _speed /= _speedMultiplier;
     }
 
