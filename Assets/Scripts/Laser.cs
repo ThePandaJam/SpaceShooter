@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField]
-    private float _speed = 8.0f;
+    [SerializeField] private float _speed = 8.0f;
+    private float topYbound = 8.0f;
+    private float bottomYbound = -8.0f;
     private bool _isEnemyLaser = false;
 
-    [SerializeField]
-    private AudioSource _audioSource;
-    [SerializeField]
-    private AudioClip _laserSound;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _laserSound;
 
     void Start()
     {
@@ -27,7 +26,6 @@ public class Laser : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
        if (_isEnemyLaser == false)
@@ -44,7 +42,7 @@ public class Laser : MonoBehaviour
     void MoveUp()
     {
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
-        if (transform.position.y >= 8.0f)
+        if (transform.position.y >= topYbound)
         {
             if (transform.parent != null)
             {
@@ -57,7 +55,7 @@ public class Laser : MonoBehaviour
     void MoveDown()
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
-        if (transform.position.y <= -8.0f)
+        if (transform.position.y <= bottomYbound)
         {
             if (transform.parent != null)
             {
