@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
         shieldVisualiser.SetActive(false);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>(); //find the gameobject, then get component
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
-        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
         _audioSource = GetComponent<AudioSource>();
         
@@ -87,7 +86,8 @@ public class Player : MonoBehaviour
         transform.Translate(direction * _speed * Time.deltaTime);
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 0), 0);
-
+        //TODO: assign magic number to a variable
+        //TODO: simplify wraparound logic
         if (transform.position.x >= 11.3f)
         {
             transform.position = new Vector3(-11.3f, transform.position.y, 0);
@@ -101,7 +101,8 @@ public class Player : MonoBehaviour
     void FireLaser()
     {
         _canFire = Time.time + _fireRate;
-        if (_tripleShotActive == true)
+        //TODO: simplify to a single Instantiate call
+        if (_tripleShotActive)
         {
             Instantiate(_tripleShotPrefab, transform.position, Quaternion.identity);
         }
@@ -113,7 +114,8 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
-        if (_shieldsActive == true)
+        //TODO: break down further into simpler functions
+        if (_shieldsActive)
         {
             _shieldsActive = false;
             shieldVisualiser.SetActive(false);
@@ -128,12 +130,12 @@ public class Player : MonoBehaviour
             _rightEngine.SetActive(true);
         }
 
-        if (_lives == 1)
+        else if (_lives == 1)
         {
             _leftEngine.SetActive(true);
         }
 
-        if (_lives <= 0)
+        else if (_lives <= 0)
         {
             _lives = 0;
             _spawnManager.OnPlayerDeath();
@@ -154,11 +156,12 @@ public class Player : MonoBehaviour
 
     IEnumerator TripleShotPowerDown()
     {
-        while (_tripleShotActive == true)
-        {
+        //TODO: is there a difference between using while and if here? Is the loop even necessary
+        //if (_tripleShotActive)
+        //{
             yield return new WaitForSeconds(5.0f);
             _tripleShotActive = false;
-        }
+        //}
     }
 
     public void SpeedBoostActivate()
