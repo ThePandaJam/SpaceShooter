@@ -15,34 +15,44 @@ public class SpawnManager : MonoBehaviour
 
     public void StartSpawning()
     {
-        StartCoroutine(SpawnEnemyRoutine());
-        StartCoroutine(SpawnPowerupRoutine());
+        StartCoroutine(SpawnEnemiesRoutine());
+        StartCoroutine(SpawnPowerupsRoutine());
     }
 
-    IEnumerator SpawnEnemyRoutine()
+    IEnumerator SpawnEnemiesRoutine()
     {
         yield return new WaitForSeconds(3.0f);
 
         while (_stopSpawning == false)
         {
-            Vector3 spawnPoint = new Vector3(Random.Range(-8, 8), 8.0f, 0);
-            GameObject newEnemy = Instantiate(_enemyPrefab, spawnPoint, Quaternion.identity);
-            newEnemy.transform.parent = _enemyContainer.transform;
+            SpawnNewEnemy();
             yield return new WaitForSeconds(5.0f);
         }
     }
 
-    IEnumerator SpawnPowerupRoutine()
+    IEnumerator SpawnPowerupsRoutine()
     {
         yield return new WaitForSeconds(3.0f);
 
         while (_stopSpawning == false)
-        {   
-            Vector3 spawnPoint = new Vector3(Random.Range(-8, 8), 8.0f, 0);
-            int randomPowerup = Random.Range(0, 3);
-            GameObject newPowerup = Instantiate(powerups[randomPowerup], spawnPoint, Quaternion.identity);
+        {
+            SpawnNewPowerup();
             yield return new WaitForSeconds(Random.Range(3, 8));
         }
+    }
+
+    private void SpawnNewEnemy()
+    {
+        Vector3 spawnPoint = new Vector3(Random.Range(-8, 8), 8.0f, 0);
+        GameObject newEnemy = Instantiate(_enemyPrefab, spawnPoint, Quaternion.identity);
+        newEnemy.transform.parent = _enemyContainer.transform;
+    }
+
+    private void SpawnNewPowerup()
+    {
+        Vector3 spawnPoint = new Vector3(Random.Range(-8, 8), 8.0f, 0);
+        int randomPowerup = Random.Range(0, 3);
+        GameObject newPowerup = Instantiate(powerups[randomPowerup], spawnPoint, Quaternion.identity);
     }
 
     public void OnPlayerDeath()

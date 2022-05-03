@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
-    [SerializeField]
-    private float _speed = 3.0f;
-    [SerializeField]
-    private int _powerupID; // 0 = triple shot, 1 = speed, 2 = shields
+    [SerializeField] private float _speed = 3.0f;
+    [SerializeField] private int _powerupID; // 0 = triple shot, 1 = speed, 2 = shields
 
-    [SerializeField]
-    private AudioClip _powerupPickupSound;
+    [SerializeField] private AudioClip _powerupPickupSound;
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
@@ -34,13 +30,13 @@ public class Powerup : MonoBehaviour
                 switch (_powerupID)
                 {
                     case 0:
-                        player.TripleShotActivate();
+                        player.ActivateTripleShot();
                         break;
                     case 1:
-                        player.SpeedBoostActivate();
+                        player.ActivateSpeedBoost();
                         break;
                     case 2:
-                        player.ShieldsActivate();
+                        player.ActivateShields();
                         break;
                     default:
                         Debug.Log("Default value");

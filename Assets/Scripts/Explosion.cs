@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    [SerializeField]
-    private AudioSource _audioSource;
-    [SerializeField]
-    private AudioClip _explosionSound;
-    // Start is called before the first frame update
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _explosionSound;
+
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
